@@ -1,0 +1,16 @@
+%h1 New Article
+
+- form_for @article do |f|
+  %p
+    = f.label :title
+    %br
+    = f.text_field :title
+  %p
+    = f.label :content
+    %br
+    = f.text_field :content
+
+  %p{:class => "button"}
+    = f.submit "Create"
+    or
+    = link_to "Cancel", articles_path
