@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title
+      = h(yield(:title) || "FuzzyCMS")
+    %meta{ :"http-equiv" => "content-type", :content => "text/html; charset=utf-8" }
+    = stylesheet_link_tag 'application'
+    = yield(:head)
+
+  %body
+    #container
+      #user_nav
+        - if current_user
+          = link_to "Edit Profile", edit_user_path(:current)
+          = link_to "Logout", logout_path
+        - else
+          = link_to "Register", new_user_path
+          = link_to "Login", login_path
+
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}"
+
+      - if show_title?
+        %h1
+          =h yield(:title)
+
+      = yield
