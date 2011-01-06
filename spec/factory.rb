@@ -1,5 +1,14 @@
+require 'faker'
 
 Factory.define :article do |a|
-  a.title 'Article'
-  a.content 'Article content'
+  a.title Faker::Lorem.words
+  a.content Faker::Lorem.paragraphs
+end
+
+Factory.define :user do |u|
+  u.email 'email@domain.com'
+  u.password 'password'
+  u.password_confirmation 'password'
+  u.first_name Faker::Name.first_name
+  u.last_name Faker::Name.last_name
 end

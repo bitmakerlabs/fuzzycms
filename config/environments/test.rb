@@ -32,3 +32,4 @@ config.gem 'rspec-rails', :version => '>= 1.3.2', :lib => false unless File.dire
 config.gem 'webrat', :lib => false, :version => '>=0.7.1'
 config.gem 'cucumber', :lib => false, :version => '>=0.9.2'
 config.gem 'factory_girl', :version => '1.3.2'
+config.gem 'faker'

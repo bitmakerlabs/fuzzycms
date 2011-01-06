@@ -9,7 +9,6 @@ Feature: Manage Articles
     Then I should see "Zombies"
     And I should see "Witch Doctors"
 
-  @selenium
   Scenario: Create new Article
     Given I have no articles
     When I go to the list of articles
@@ -21,7 +20,6 @@ Feature: Manage Articles
     And I should see "The bane of everyone's existance"
     And I should see "Article successfully created."
 
-  @selenium
   Scenario: View a single Article
     Given I have articles titled Zombies, Scourge
     When I go to the list of articles
@@ -29,7 +27,6 @@ Feature: Manage Articles
     Then I should see "Zombies"
     And I should see "Back to Articles"
 
-  @selenium
   Scenario: Cancel creating new article
     Given I have articles titled Witches, Imps
     When I go to the list of articles
