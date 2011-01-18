@@ -6,8 +6,6 @@ require 'spec/autorun'
 require 'spec/rails'
 require 'authlogic/test_case'
 
-include Authlogic::TestCase
-
 # Uncomment the next line to use webrat's matchers
 #require 'webrat/integrations/rspec-rails'
 
@@ -16,6 +14,8 @@ include Authlogic::TestCase
 Dir[File.expand_path(File.join(File.dirname(__FILE__),'support','**','*.rb'))].each {|f| require f}
 
 Spec::Runner.configure do |config|
+  include Authlogic::TestCase
+  
   # If you're not using ActiveRecord you should remove these
   # lines, delete config/database.yml and disable :active_record
   # in your config/boot.rb
