@@ -1,5 +1,7 @@
-%p
-  %b Email:
-  =h @user.email
+%h1 My Account
 
-= link_to 'Edit', edit_account_path
+#info
+  %p
+    %b Email:
+    =h @user.email
+  = link_to 'Edit', edit_account_path, :id => 'edit_link'

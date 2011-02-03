@@ -22,6 +22,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = @current_user
+
+    respond_to do |format|
+      format.html { render }
+      format.js   { render :partial => 'edit_form' }
+    end
   end
 
   def update
