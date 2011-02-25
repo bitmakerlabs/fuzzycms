@@ -4,7 +4,7 @@ Fuzzycms::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
   match 'login' => 'user_sessions#new', :as => :login
-  match 'logout' => 'user_session#destroy', :as => :logout
+  match 'logout' => 'user_sessions#destroy', :as => :logout
 
   
   # Sample resource route (maps HTTP verbs to controller actions automatically):
