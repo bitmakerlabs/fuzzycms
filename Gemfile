@@ -1,21 +1,26 @@
-source "http://rubygems.org"
+source 'http://rubygems.org'
 
-gem "rails", "~>2.3.11"
-gem "sqlite3-ruby", :require => "sqlite3"
+gem 'rails', '3.0.4'
 
-gem "haml"
-gem "authlogic"
+gem 'sqlite3'
 
-group :development do
-  # add development only gems here
+gem 'haml', '~>3.0.25'
+gem 'authlogic', '~>2.1.6'
+
+group :development, :test do
+  gem 'rspec-rails', '~>2.5.0'
+  gem 'rr'
+  gem 'faker'
+  gem 'factory_girl_rails'
 end
 
-group :test do
-  gem 'rspec', '1.3.1'
-  gem 'rspec-rails', '1.3.3'
-  gem 'webrat', '0.7.1'
-  gem 'cucumber', '0.10.0'
-  gem 'factory_girl', '~>1.3.2'
-  gem 'faker'
+group :cucumber do
+  gem 'rspec-rails', '~>2.5.0'
+  gem 'cucumber', '~>0.10.0'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'spork'
+  gem 'launchy'
   gem 'rr'
+  gem 'faker'
 end

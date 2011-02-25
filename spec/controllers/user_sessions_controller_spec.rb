@@ -31,12 +31,12 @@ describe UserSessionsController do
     end
 
     it 'calls destroy on current_user_session object' do
-      post :destroy
+      post :destroy, :id => 12
       response.should redirect_to(root_url)
     end
 
     it 'puts success message in flash' do
-      post :destroy
+      post :destroy, :id => 12
       flash[:notice].should == "Logout successful!"
     end
   end
