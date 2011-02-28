@@ -28,7 +28,7 @@ GEM
       activemodel (= 3.0.4)
       activesupport (= 3.0.4)
     activesupport (3.0.4)
-    arel (2.0.8)
+    arel (2.0.9)
     authlogic (2.1.6)
       activesupport
     builder (2.1.2)
@@ -51,6 +51,8 @@ GEM
       gherkin (~> 2.3.2)
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
+    cucumber-rails (0.3.2)
+      cucumber (>= 0.8.0)
     culerity (0.2.15)
     database_cleaner (0.6.4)
     diff-lcs (1.1.2)
@@ -70,7 +72,7 @@ GEM
     i18n (0.5.0)
     json (1.4.6)
     json_pure (1.5.1)
-    launchy (0.3.7)
+    launchy (0.4.0)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
     mail (2.2.15)
@@ -136,7 +138,7 @@ PLATFORMS
 DEPENDENCIES
   authlogic (~> 2.1.6)
   capybara
-  cucumber (~> 0.10.0)
+  cucumber-rails (~> 0.3.2)
   database_cleaner
   factory_girl_rails
   faker

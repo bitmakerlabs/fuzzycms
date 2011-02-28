@@ -3,6 +3,14 @@ Feature: Manage Articles
   As an author
   I want to create and manage articles
 
+  Background: login
+    Given I have a user called "Frodo Baggins" with a password of "password"
+    When I go to the home page
+    And I follow "Login"
+    And I fill in "frodo@example.com" for "Email"
+    And I fill in "password" for "Password"
+    And I press "Login"
+
   Scenario: Articles List
     Given I have articles titled Zombies, Witch Doctors
     When I go to the list of articles
