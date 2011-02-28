@@ -8,4 +8,9 @@ describe ArticlesController do
       assigns[:articles].should == []
     end
   end
+
+  describe "GET #new" do
+    it 'redirects non-logged in users back to root_url'
+    it 'allows logged in users to access page'
+  end
 end
