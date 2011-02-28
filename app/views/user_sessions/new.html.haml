@@ -1,6 +1,6 @@
 %h1 Login
 
-- form_for @user_session, :as => :user_session, :url => {:action => "create"} do |f|
+= form_for @user_session, :as => :user_session, :url => {:action => "create"} do |f|
   = f.error_messages
   %br
   = f.label :email

@@ -6,6 +6,7 @@ gem 'sqlite3'
 
 gem 'haml', '~>3.0.25'
 gem 'authlogic', '~>2.1.6'
+gem 'acts_as_commentable'
 
 group :development, :test do
   gem 'rspec-rails', '~>2.5.0'

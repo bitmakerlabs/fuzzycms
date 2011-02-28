@@ -120,3 +120,7 @@ body {
   float: right;
   font-size: 12px;
 }
+
+.title_field {
+    width: 500px;
+}

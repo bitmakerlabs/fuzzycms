@@ -1,5 +1,5 @@
 Given /^I have articles titled (.+)$/ do |titles|
-  titles.split(', ').each { |title| Article.create!(:title => title) }
+  titles.split(', ').each { |title| Factory(:article, :title => title) }
 end
 
 Given /^I have no articles$/ do

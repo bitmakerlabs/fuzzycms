@@ -1,5 +1,11 @@
 Fuzzycms::Application.routes.draw do
 
+  get "comments/create"
+
+  get "comments/update"
+
+  get "comments/destroy"
+
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
@@ -9,7 +15,10 @@ Fuzzycms::Application.routes.draw do
   
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :password_resets, :user_sessions, :users, :articles, :pages
+  resources :password_resets, :user_sessions, :users, :pages
+  resources :articles do
+    resources :comments
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
