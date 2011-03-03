@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/jjb/authlogic.git
+  revision: e5adbafa25c9bb14c0fd6ef80b8a649549c79be1
+  specs:
+    authlogic (2.1.6)
+      activesupport
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -30,8 +37,6 @@ GEM
     activesupport (3.0.4)
     acts_as_commentable (3.0.1)
     arel (2.0.9)
-    authlogic (2.1.6)
-      activesupport
     builder (2.1.2)
     capybara (0.4.1.2)
       celerity (>= 0.7.9)
@@ -138,7 +143,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_commentable
-  authlogic (~> 2.1.6)
+  authlogic!
   capybara
   cucumber-rails (~> 0.3.2)
   database_cleaner

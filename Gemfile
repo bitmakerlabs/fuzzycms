@@ -5,7 +5,7 @@ gem 'rails', '3.0.4'
 gem 'sqlite3'
 
 gem 'haml', '~>3.0.25'
-gem 'authlogic', '~>2.1.6'
+gem 'authlogic', :git => 'https://github.com/jjb/authlogic.git'
 gem 'acts_as_commentable'
 
 group :development, :test do
