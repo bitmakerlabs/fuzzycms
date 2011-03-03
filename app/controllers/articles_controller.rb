@@ -15,10 +15,17 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.create!(params[:article])
-    flash[:notice] = "Article successfully created."
+    @article = Article.new(params[:article])
+    logger.info "\n\ncurrent_user = #{current_user.inspect}"
+    @article.author = current_user
 
-    redirect_to articles_path
+    if @article.save
+      flash[:notice] = "Article successfully created."
+      redirect_to @article
+    else
+      render :action => "new"
+    end
+
   end
 
 end

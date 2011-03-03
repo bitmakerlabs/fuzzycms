@@ -29,7 +29,6 @@ describe CommentsController do
         mock(Article).find("12") {@article}
         mock(@article).comments {stub!.create(params) {true}}
         post :create, :article_id => "12", :comment => params
-
       end
     end
 

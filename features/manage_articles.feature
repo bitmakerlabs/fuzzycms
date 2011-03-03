@@ -12,10 +12,11 @@ Feature: Manage Articles
     And I press "Login"
 
   Scenario: Articles List
-    Given I have articles titled Zombies, Witch Doctors
+    Given I have articles titled "Zombies, Witch Doctors" written by "frodo@example.com"
     When I go to the list of articles
     Then I should see "Zombies"
     And I should see "Witch Doctors"
+    And I should see "Frodo Baggins"
 
   Scenario: Create new Article
     Given I have no articles
@@ -27,19 +28,22 @@ Feature: Manage Articles
     Then I should see "Scourge"
     And I should see "The bane of everyone's existance"
     And I should see "Article successfully created."
+    And I should see "Frodo Baggins"
 
   Scenario: View a single Article
-    Given I have articles titled Zombies, Scourge
+    Given I have articles titled "Zombies, Scourge" written by "frodo@example.com"
     When I go to the list of articles
     And I follow "Zombies"
     Then I should see "Zombies"
     And I should see "Back to Articles"
+    And I should see "Frodo Baggins"
 
   Scenario: Cancel creating new article
-    Given I have articles titled Witches, Imps
+    Given I have articles titled "Witches, Imps" written by "frodo@example.com"
     When I go to the list of articles
     And I follow "New Article"
     And I follow "Cancel"
     Then I should see "Blog Articles"
     And I should see "Witches"
     And I should see "Imps"
+    And I should see "Frodo Baggins"
