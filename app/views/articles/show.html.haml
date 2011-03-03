@@ -4,3 +4,16 @@
 %p= @article.content
 
 %p= link_to "Back to Articles", articles_path
+
+%h2 Comments
+
+- @article.comments.each do |c|
+  %p
+    = h(c.comment)
+
+= form_for [@article, @comment] do |f|
+  = f.label(:comment, "Comment")
+  %br
+  = f.text_area(:comment, :cols => 80, :rows => 10)
+  %br
+  = f.submit "Add"
