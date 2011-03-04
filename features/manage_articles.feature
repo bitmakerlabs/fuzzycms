@@ -43,7 +43,7 @@ Feature: Manage Articles
     When I go to the list of articles
     And I follow "New Article"
     And I follow "Cancel"
-    Then I should see "Blog Articles"
+    Then I should see "Articles"
     And I should see "Witches"
     And I should see "Imps"
     And I should see "Frodo Baggins"

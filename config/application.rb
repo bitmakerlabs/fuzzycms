@@ -47,4 +47,4 @@ module Fuzzycms
   end
 end
 
-Haml::Template.options[:format] = :html4
+Haml::Template.options[:format] = :html5

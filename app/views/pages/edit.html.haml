@@ -1,4 +1,8 @@
-%h1 Pages#edit
+%h1 Edit Page
 
-%p
-  Find me in app/views/pages/edit.html.erb
+= form_for @page do |p|
+  = p.error_messages
+  = render :partial => "form", :object => p
+  = p.submit "Update"
+  or
+  = link_to "Cancel", pages_path

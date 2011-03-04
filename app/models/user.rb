@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :articles
 
+  validates_presence_of :first_name, :last_name
+
   def deliver_password_reset_instructions!
     reset_perishable_token!
     Notifier.deliver_password_reset_instructions(self)

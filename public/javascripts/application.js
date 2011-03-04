@@ -11,5 +11,7 @@ $(function() {
            }
         });
         e.preventDefault();
-    })
+    });
+
+    $("tr:odd").addClass("odd");
 });

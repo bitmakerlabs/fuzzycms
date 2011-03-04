@@ -1,4 +1,8 @@
-%h1 Pages#new
+%h1 Create a new Page
 
-%p
-  Find me in app/views/pages/new.html.erb
+= form_for @page do |p|
+  = p.error_messages
+  = render :partial => "form", :object => p
+  = p.submit "Create"
+  or
+  = link_to "Cancel", pages_path

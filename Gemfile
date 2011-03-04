@@ -4,6 +4,7 @@ gem 'rails', '3.0.4'
 
 gem 'sqlite3'
 
+gem 'jquery-rails', '>= 0.2.6'
 gem 'haml', '~>3.0.25'
 gem 'authlogic', :git => 'https://github.com/jjb/authlogic.git'
 gem 'acts_as_commentable'

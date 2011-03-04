@@ -1,4 +1,21 @@
-%h1 Pages#index
+%h1 Pages
 
 %p
-  Find me in app/views/pages/index.html.erb
+  = link_to "Create a new page", new_page_path
+
+%p
+  Your created Pages
+
+%table#pages_table
+  %tr
+    %th.page_title_heading
+      Page Title
+    %th.actions_heading
+      Actions
+  - @pages.each do |page|
+    %tr
+      %td.page_title_cell
+        = link_to page.title, page
+      %td.action_cell
+        = link_to "Edit", edit_page_path(page)
+        = link_to "Delete", page_path(page), :confirm => "Are you sure?", :method => :delete
