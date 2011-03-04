@@ -19,6 +19,10 @@ Fuzzycms::Application.routes.draw do
     resources :comments
   end
 
+  namespace :admin do
+    match 'dashboard' => 'dashboard#index'
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
