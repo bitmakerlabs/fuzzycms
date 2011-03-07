@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_filter :require_user, :except => [:index, :show]
 
   def index
-    @articles = Article.all
+    @articles = Article.order("created_at").all
   end
 
   def show
@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
 
     if @article.save
       flash[:notice] = "Article successfully created."
-      redirect_to @article
+      redirect_to articles_path
     else
       render :action => "new"
     end
@@ -40,7 +40,9 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    
+    Article.destroy(params[:id])
+    flash[:notice] = "Article was successfully deleted"
+    redirect_to articles_path
   end
 
 end

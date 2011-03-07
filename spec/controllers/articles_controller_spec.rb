@@ -36,7 +36,7 @@ describe ArticlesController do
         mock(@article).save {true}
         
         post :create
-        response.should redirect_to(article_path(@article))
+        response.should redirect_to(articles_path)
       end
 
       it 'redirects user to article page once created successfully' do
@@ -45,7 +45,7 @@ describe ArticlesController do
         mock(@article).save {true}
         
         post :create, :article => params
-        response.should redirect_to(article_path(@article))
+        response.should redirect_to(articles_path)
       end
 
       it 'redirects the user back to new page when article is invalid' do

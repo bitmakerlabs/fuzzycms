@@ -8,6 +8,7 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    RedCloth (4.2.7)
     abstract (1.0.0)
     actionmailer (3.0.4)
       actionpack (= 3.0.4)
@@ -150,6 +151,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  RedCloth
   acts_as_commentable
   authlogic!
   capybara

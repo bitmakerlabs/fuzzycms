@@ -26,7 +26,6 @@ Feature: Manage Articles
     And I fill in "Content" with "The bane of everyone's existance"
     And I press "Create"
     Then I should see "Scourge"
-    And I should see "The bane of everyone's existance"
     And I should see "Article successfully created."
     And I should see "Frodo Baggins"
 

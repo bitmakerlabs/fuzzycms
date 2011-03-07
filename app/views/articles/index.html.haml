@@ -2,6 +2,7 @@
 
 = flash[:notice]
 
+%p= link_to "New Article", new_article_path
 
 %ul
 - @articles.each do |article|
@@ -13,5 +14,5 @@
         %b= link_to article.title, article
         .actions_box
           = link_to "Edit", edit_article_path(article)
+          = link_to "Delete", article_path(article), :confirm => "Are you sure?", :method => "delete"
 
-%p= link_to "New Article", new_article_path
