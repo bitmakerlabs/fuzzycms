@@ -150,9 +150,37 @@ table {
     text-align: right;
 }
 
+.highlight {
+    background-color: #dcdcdc;
+}
+
 .even {
     background-color: #fff;
 }
 .odd {
     background-color: #eee;
+}
+
+.article li {
+    margin: 5px;
+    list-style: none;
+    border: 1px solid inherit;
+    border-bottom: 1px solid #dcdcdc;
+    padding: 0;
+}
+.actionable {
+    padding: 5px;
+}
+.actions_box {
+    float: right;
+}
+.actions_box a {
+    color: #999;
+    text-decoration: none;
+}
+.actions_box a:hover {
+    color: blue;
+}
+.actions_box a:active {
+    color: purple;
 }

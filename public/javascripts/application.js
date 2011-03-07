@@ -14,4 +14,14 @@ $(function() {
     });
 
     $("tr:odd").addClass("odd");
+
+    $(".actions_box").hide();
+
+    $(".actionable").mouseover(function() {
+        $(this).addClass("highlight");
+        $(this).find(".actions_box").show();
+    }).mouseout(function() {
+        $(this).removeClass("highlight");
+        $(this).find(".actions_box").hide();
+    });
 });

@@ -14,8 +14,8 @@ describe PagesController do
 
   describe '#edit' do
     it 'is successful when logged in' do
-      pending
       execute_login
+      mock(Page).find(12) {nil}
 
       put :edit, :id => 12
       response.should render_template(:edit)

@@ -30,9 +30,7 @@ class PagesController < ApplicationController
 
   def update
     @page = Page.find(params[:id])
-    @page.update_attributes(params[:page])
-
-    if @page.save
+    if @page.update_attributes(params[:page])
       flash[:notice] = "Your page was successfully update"
       redirect_to pages_path
     else

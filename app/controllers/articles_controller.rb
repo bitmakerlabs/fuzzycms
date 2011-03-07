@@ -16,7 +16,6 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(params[:article])
-    logger.info "\n\ncurrent_user = #{current_user.inspect}"
     @article.author = current_user
 
     if @article.save
@@ -25,7 +24,23 @@ class ArticlesController < ApplicationController
     else
       render :action => "new"
     end
+  end
 
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    if @article.update_attributes(params[:article])
+      redirect_to articles_path, :notice => "Article updated successfully"
+    else
+      render :action => "edit"
+    end
+  end
+
+  def destroy
+    
   end
 
 end

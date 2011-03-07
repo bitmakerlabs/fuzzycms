@@ -2,13 +2,16 @@
 
 = flash[:notice]
 
+
+%ul
 - @articles.each do |article|
   .article
-    %h2= link_to article.title, article_path(article)
-    %p
-      Author:
-      = article.author.full_name
-    %p
-      = h(article.content)
+    %li
+      .actionable
+        = article.author.full_name
+        
+        %b= link_to article.title, article
+        .actions_box
+          = link_to "Edit", edit_article_path(article)
 
 %p= link_to "New Article", new_article_path

@@ -38,6 +38,7 @@ module Fuzzycms
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password, :password_confirmation]
+    config.secret_token = 'd21164766fb0c10e3a4a4bdcda75445d7eb30c9fe043bb557057d5ca33de7988c723b5efff68e343f18b8f5a7dd684a5f9a24745ccc54c45697f88194cfa976b'
 
     config.time_zone = 'UTC'
 
