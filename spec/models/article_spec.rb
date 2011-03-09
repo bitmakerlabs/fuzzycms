@@ -19,4 +19,10 @@ describe Article do
     end
   end
 
+  context 'activity log' do
+    it 'creates an Activity object when an article is created' do
+      
+    end
+  end
+
 end

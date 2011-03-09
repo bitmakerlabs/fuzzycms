@@ -21,6 +21,7 @@ module Fuzzycms
 
     # Activate observers that should always be running.
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
+    config.active_record.observers = :activity_observer
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
@@ -41,6 +42,8 @@ module Fuzzycms
     config.secret_token = 'd21164766fb0c10e3a4a4bdcda75445d7eb30c9fe043bb557057d5ca33de7988c723b5efff68e343f18b8f5a7dd684a5f9a24745ccc54c45697f88194cfa976b'
 
     config.time_zone = 'UTC'
+
+
 
     config.generators do |g|
       g.test_framework :rspec

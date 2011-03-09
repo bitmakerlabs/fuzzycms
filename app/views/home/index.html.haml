@@ -1,0 +1,16 @@
+%h1 Articles
+
+- @articles.each do |article|
+  %h2= link_to article.title, article
+  %p
+    Created by:
+    = article.user.full_name
+    Created
+    = distance_of_time_in_words(article.created_at, Time.now)
+    ago
+  %p= article.content
+
+%h1 Activities
+
+- @activities.each do |activity|
+  %p= link_to(activity.user.full_name, activity.user) + " " + activity.action + " " + activity.model + " on " + activity.created_at.to_s(:long)

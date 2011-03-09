@@ -10,6 +10,7 @@ gem 'authlogic', :git => 'https://github.com/jjb/authlogic.git'
 gem 'acts_as_commentable'
 gem 'inherited_resources', '~> 1.2.1'
 gem 'RedCloth'
+gem 'cancan'
 
 group :development, :test do
   gem 'rspec-rails', '~>2.5.0'

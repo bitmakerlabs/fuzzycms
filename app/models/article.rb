@@ -1,8 +1,25 @@
 class Article < ActiveRecord::Base
   acts_as_commentable
 
-  belongs_to :author, :class_name => "User", :foreign_key => "user_id"
+  belongs_to :user, :class_name => "User"
 
   validates_presence_of :title, :content
-  validates_presence_of :author
+  validates_presence_of :user
+
+  scope :recent, order("created_at DESC").limit(3)
+
+
+  def name
+    title
+  end
+
+  def author
+    user
+  end
+
+  def author=(user)
+    self.user = user
+  end
+
+
 end

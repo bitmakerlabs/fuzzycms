@@ -2,7 +2,7 @@
 %html
   %head
     %title
-      = h(yield(:title) || "FuzzyCMS")
+      = yield_for(:title, "FuzzyCMS")
     %meta{ :"http-equiv" => "content-type", :content => "text/html; charset=utf-8" }
     = csrf_meta_tag
     = stylesheet_link_tag 'application'
@@ -17,6 +17,7 @@
       #user_nav
         - if current_user
           = link_to "My Profile", user_path(:current)
+          = link_to "Admin", admin_dashboard_path
           = link_to "Logout", logout_path
         - else
           = link_to "Register", new_user_path
@@ -25,7 +26,7 @@
       #public_nav
         = link_to "Home", root_url
         = raw pages_nav
-        = link_to "Admin", admin_dashboard_path
+
 
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"

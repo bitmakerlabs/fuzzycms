@@ -39,6 +39,7 @@ GEM
     acts_as_commentable (3.0.1)
     arel (2.0.9)
     builder (2.1.2)
+    cancan (1.5.1)
     capybara (0.4.1.2)
       celerity (>= 0.7.9)
       culerity (>= 0.2.4)
@@ -154,6 +155,7 @@ DEPENDENCIES
   RedCloth
   acts_as_commentable
   authlogic!
+  cancan
   capybara
   cucumber-rails (~> 0.3.2)
   database_cleaner
