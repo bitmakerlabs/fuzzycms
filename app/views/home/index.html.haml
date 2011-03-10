@@ -3,9 +3,8 @@
 - @articles.each do |article|
   %h2= link_to article.title, article
   %p
-    Created by:
+    Author
     = article.user.full_name
-    Created
     = distance_of_time_in_words(article.created_at, Time.now)
     ago
   %p= article.content
