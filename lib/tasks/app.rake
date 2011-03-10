@@ -9,6 +9,7 @@ namespace :app do
         {:first_name => "Bart", :last_name => "simpson", :email => "bart@example.com", :password => "password", :password_confirmation => "password"}
     ].each do |attributes|
       User.find_or_create_by_email(attributes)
+      puts "User #{attributes[:first_name]} #{attributes[:last_name]} now in Database"
     end
   end
 end

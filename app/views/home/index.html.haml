@@ -12,5 +12,4 @@
 
 %h1 Activities
 
-- @activities.each do |activity|
-  %p= link_to(activity.user.full_name, activity.user) + " " + activity.action + " " + activity.model + " on " + activity.created_at.to_s(:long)
+= activities_list

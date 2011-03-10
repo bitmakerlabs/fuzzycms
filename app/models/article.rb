@@ -1,6 +1,7 @@
 class Article < ActiveRecord::Base
   acts_as_commentable
 
+  has_many :activities, :as => :logable
   belongs_to :user, :class_name => "User"
 
   validates_presence_of :title, :content

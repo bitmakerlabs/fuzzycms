@@ -2,6 +2,6 @@ class ActivityObserver < ActiveRecord::Observer
   observe :article
   
   def after_create(model)
-    Activity.create!(:user => model.user, :model => model.class.name, :action => "created", :name => model.name)
+    Activity.create!(:action => "created", :logable => model)
   end
 end

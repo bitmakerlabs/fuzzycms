@@ -10,13 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110309171541) do
+ActiveRecord::Schema.define(:version => 20110310165323) do
 
   create_table "activities", :force => true do |t|
     t.string   "action"
-    t.string   "model"
-    t.integer  "user_id"
-    t.string   "name"
+    t.integer  "logable_id"
+    t.string   "logable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,6 +26,13 @@ ActiveRecord::Schema.define(:version => 20110309171541) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "assignments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "comments", :force => true do |t|
@@ -46,6 +52,13 @@ ActiveRecord::Schema.define(:version => 20110309171541) do
   create_table "pages", :force => true do |t|
     t.string   "title"
     t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.integer  "assignments_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
