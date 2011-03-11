@@ -1,9 +1,9 @@
 class Comment < ActiveRecord::Base
-
   include ActsAsCommentable::Comment
 
+  acts_as_logable
+
   belongs_to :commentable, :polymorphic => true
-  has_many :activities, :as => :logable
 
   default_scope :order => 'created_at ASC'
 

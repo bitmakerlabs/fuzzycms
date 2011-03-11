@@ -43,8 +43,6 @@ module Fuzzycms
 
     config.time_zone = 'UTC'
 
-
-
     config.generators do |g|
       g.test_framework :rspec
     end

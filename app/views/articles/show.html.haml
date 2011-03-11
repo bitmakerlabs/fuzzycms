@@ -5,7 +5,7 @@
   Author:
   = @article.author.full_name
 
-%p= @article.content
+= raw RedCloth.new(@article.content).to_html
 
 %p= link_to "Back to Articles", articles_path
 

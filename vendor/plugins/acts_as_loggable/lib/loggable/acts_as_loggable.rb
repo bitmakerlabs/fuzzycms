@@ -1,6 +1,6 @@
-module Logable
+module Loggable
   def acts_as_logable
-    has_many :activities, :as => :logable
+    has_many :activities, :as => :loggable
     include InstanceMethods
   end
 
@@ -8,9 +8,10 @@ module Logable
   end
 
   module InstanceMethods
-    def logable?
+    def loggable?
       true
     end
   end
 end
 
+ActiveRecord::Base.extend Loggable
