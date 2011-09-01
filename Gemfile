@@ -23,6 +23,7 @@ group :cucumber do
   gem 'rspec-rails', '~>2.5.0'
   gem 'cucumber-rails', '~>0.3.2'
   gem 'capybara'
+  gem 'capybara-webkit'
   gem 'database_cleaner'
   gem 'spork'
   gem 'launchy'
