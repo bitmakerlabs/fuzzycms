@@ -1,8 +1,0 @@
-%h1 Edit Page
-
-= form_for @page do |p|
-  = p.error_messages
-  = render :partial => "form", :object => p
-  = p.submit "Update"
-  or
-  = link_to "Cancel", pages_path

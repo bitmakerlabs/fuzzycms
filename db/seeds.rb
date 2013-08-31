@@ -3,14 +3,5 @@
 #
 # Examples:
 #
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Daley', :city => cities.first)
-
-[
-    {:name => 'admin'},
-    {:name => 'editor'},
-    {:name => 'author'},
-    {:name => 'member'}
-].each do |role|
-  Role.find_or_create_by_name(role)
-end
+#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.create(name: 'Emanuel', city: cities.first)
