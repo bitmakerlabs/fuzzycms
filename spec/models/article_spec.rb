@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe Article do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should contain a title" do
+    article = Article.new
+
+    expect(article).to_not be_valid
+  end
 end

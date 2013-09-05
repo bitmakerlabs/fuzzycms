@@ -1,0 +1,54 @@
+body {
+  font: 0.9em Helvetica, Trebutchet, sans-serif;
+  line-height: 1.2em;
+  background-color: gainsboro;
+}
+
+h1 {
+  font-size: 1.5em;
+  font-weight: bold;
+  line-height: 1.7em;
+}
+
+h2 {
+  font-size: 1.3em;
+  font-weight: bold;
+  line-height: 1.5em;
+}
+
+#container {
+  width: 960px;
+  margin: 0 auto;
+  margin-top: 10px;
+  background-color: whitesmoke;
+}
+
+#top_nav {
+  padding: 0.5em;
+  background-color: tomato;
+}
+
+#content {
+  padding: 0.5em;
+}
+
+input, textarea {
+  box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+  -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+  -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+  margin: 0.5em;
+  border: 1px solid #999;
+}
+
+input {
+  width: 375px;
+  display: block;
+
+  height: 25px;
+}
+
+textarea {
+  width: 375px;
+  height: 100px;
+  display: block;
+}

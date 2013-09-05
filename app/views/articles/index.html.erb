@@ -1,2 +1,9 @@
+<%=	link_to "New Article", new_article_path %>
+
 <h2>Articles</h2>
 
+<ul>
+  <% @articles.each do |article| %>
+    <li><%= link_to article.title, article %> - <%= link_to "X", article, method: :delete %></li>
+  <% end %>
+</ul>

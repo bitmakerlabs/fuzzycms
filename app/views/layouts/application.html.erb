@@ -8,7 +8,16 @@
 </head>
 <body>
 
-<%= yield %>
+<div id="container">
+  <div id="top_nav">
+    <ul>
+      <li><%= link_to "Articles", articles_path %></li>
+    </ul>
+  </div>
+  <div id="content">
+    <%= yield %>
+  </div>
+</div>
 
 </body>
 </html>

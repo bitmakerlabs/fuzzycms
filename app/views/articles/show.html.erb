@@ -1,1 +1,9 @@
-<h2>Article</h2>
+<%= link_to "Index", articles_path %>
+
+<h2><%= @article.title %></h2>
+
+<p><%= link_to "Edit", edit_article_path(@article) %></p>
+
+<p>
+  <%= @article.body %>
+</p>

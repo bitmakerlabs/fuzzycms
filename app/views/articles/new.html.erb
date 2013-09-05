@@ -4,11 +4,8 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
 
-  <br/>
-
   <%= f.label :body %>
   <%= f.text_area :body %>
 
-  <br/>
-  <%= f.submit %>
+  <%= f.submit %> <%= link_to "Cancel", articles_path %>
 <% end %>
