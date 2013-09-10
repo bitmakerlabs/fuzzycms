@@ -13,7 +13,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.create article_parameters
+    @article = Article.new article_parameters
 
     if @article.save
       redirect_to @article
