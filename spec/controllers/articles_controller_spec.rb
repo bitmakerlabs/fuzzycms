@@ -14,17 +14,15 @@ describe ArticlesController do
 
   describe "#create" do
     let(:article_params) { {"title" => "title", "body" => "body"} }
-    # let(:model) { FactoryGirl.build(:article) }
+    let!(:model) { FactoryGirl.build(:article) }
 
     it "should call new on Article" do
-      model = FactoryGirl.build(:article)
       Article.should_receive(:new).and_return(model)
 
       post :create, "article" => article_params
     end
 
     it "should assign new article" do
-      model = FactoryGirl.build(:article)
       Article.should_receive(:new).and_return(model)
 
       post :create, "article" => article_params
