@@ -2,14 +2,24 @@ require 'spec_helper'
 
 describe ArticlesController do
   it "should call all on Article" do
-    Article.should_receive(:all)
+    Article.stub(:all)
     get :index
+    expect(response.status).to eq(200)
   end
 
   it "should assign articles to @articles" do
-    Article.should_receive(:all).and_return([])
+    Article.stub(:all).and_return([])
     get :index
     expect(assigns[:articles]).to eq([])
+  end
+  
+  it 'should return all the articles' do
+    article1 = FactoryGirl.create(:article)
+    article2 = FactoryGirl.create(:article, :title => "another article")
+    
+    get :index
+    
+    assigns[:articles].should =~ [article1, article2]
   end
 
   describe "#create" do
