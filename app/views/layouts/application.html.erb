@@ -3,39 +3,36 @@
 <head>
   <title>Fuzzycms</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <div id="container">
-  <div id="top_nav">
-    <ul>
-      <li><%= link_to "Articles", articles_path %></li>
-    </ul>
-  </div>
+  <section id="header">
+    <div id="login">
+      <% if current_user %>
+        Logged in as <%= current_user.email %>.
+        <%= link_to "Log out", logout_path %>
+      <% else %>
+        <%= link_to "Sign up", signup_path %> or
+        <%= link_to "log in", login_path %>.
+      <% end %>
+    </div>
 
-  <section id="login">
-    <% if current_user %>
-      Logged in as <%= current_user.email %>.
-      <%= link_to "Log out", logout_path %>
-    <% else %>
-      <%= link_to "Sign up", signup_path %> or
-      <%= link_to "log in", login_path %>.
-    <% end %>
+    <h1><%= link_to "FuzzyCMS", root_path %></h1>
   </section>
 
+  <section id="content">
+    <section id="flash_notices">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+    </section>
 
-  <section id="flash_notices">
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end %>
-  </section>
-
-
-  <div id="content">
     <%= yield %>
-  </div>
+  </section>
 </div>
 
 </body>

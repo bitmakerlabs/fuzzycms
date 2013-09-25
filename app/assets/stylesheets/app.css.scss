@@ -10,6 +10,11 @@ h1 {
   line-height: 1.7em;
 }
 
+h1 a {
+  text-decoration: none;
+  color: black;
+}
+
 h2 {
   font-size: 1.3em;
   font-weight: bold;
@@ -19,23 +24,17 @@ h2 {
 #container {
   width: 960px;
   margin: 0 auto;
-  margin-top: 10px;
   background-color: whitesmoke;
 }
 
-#top_nav {
-  padding: 0.5em;
-  background-color: tomato;
-}
-
 #content {
-  padding: 0.5em;
+  padding: 1.5em;
 }
 
 input, textarea {
-  box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
-  -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
-  -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
   margin: 0.5em;
   border: 1px solid #999;
 }
@@ -51,4 +50,43 @@ textarea {
   width: 375px;
   height: 100px;
   display: block;
+}
+
+#header {
+  background-color: tomato;
+  padding: 20px;
+}
+
+#login {
+  float: right;
+  width: 300px;
+  text-align: right;
+}
+
+#flash_notice, #flash_error, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error, #flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+#comments {
+  margin: 10px 0;
+}
+
+.comment {
+  border: 1px solid grey;
+  margin: 10px 0;
+  padding: 10px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+
 }

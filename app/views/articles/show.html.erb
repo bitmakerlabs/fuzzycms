@@ -1,9 +1,28 @@
-<%= link_to "Index", articles_path %>
-
 <h2><%= @article.title %></h2>
+
+<section id="article">
+  <%= @article.body %>
+</section>
 
 <p><%= link_to "Edit", edit_article_path(@article) %></p>
 
-<p>
-  <%= @article.body %>
-</p>
+<section id="comments">
+  <h2>Comments</h2>
+
+  <% @article.comments.each do |comment| %>
+    <section class="comment">
+      <%= comment.body %>
+    </section>
+  <% end %>
+
+  <%= form_for [@article, @comment] do |f| %>
+    <div class="field">
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </div>
+    <div class="field">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+</section>
