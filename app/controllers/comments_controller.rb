@@ -5,7 +5,10 @@ class CommentsController < ApplicationController
     @comment = Comment.new comment_parameters
     @comment.article = @article
     if @comment.save
-      redirect_to @article, :notice => "Comment successfully added"
+      respond_to do |format|
+        format.html { redirect_to @article, :notice => "Comment successfully added" }
+        format.json { @omment }
+      end
     else
       redirect_to @article, :error => "Something went wrong saving your comment"
     end
