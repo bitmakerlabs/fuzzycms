@@ -24,8 +24,7 @@ feature 'Signing up', js: true do
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
 
-    click_button 'Create User'
-
+    click_button 'Create User'    
     expect(page).to have_content('Successfully signed up')
   end
 end
