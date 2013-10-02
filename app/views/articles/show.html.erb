@@ -1,5 +1,9 @@
 <h2><%= @article.title %></h2>
 
+<p>
+  Written by: <%= @article.user.name %>
+</p>
+
 <section id="article">
   <%= @article.body %>
 </section>

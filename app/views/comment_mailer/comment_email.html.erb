@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>New Comment</h1>
+    <p>
+      A new comment has been posted on your article. To see the comment, please follow
+      <%= link_to @article.title, article_url(@article) %>
+    </p>
+  </body>
+</html>

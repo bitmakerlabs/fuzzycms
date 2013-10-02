@@ -4,13 +4,15 @@ class CommentsController < ApplicationController
     @article = Article.find(params[:article_id])
     @comment = Comment.new comment_parameters
     @comment.article = @article
-    if @comment.save
-      respond_to do |format|
+
+    respond_to do |format|
+      if @comment.save
+        CommentMailer.comment_email(current_user, @article).deliver
         format.html { redirect_to @article, :notice => "Comment successfully added" }
-        format.json { @omment }
+        #format.json { @comment }
+      else
+        format.html { redirect_to @article, :error => "Something went wrong saving your comment" }
       end
-    else
-      redirect_to @article, :error => "Something went wrong saving your comment"
     end
   end
   
