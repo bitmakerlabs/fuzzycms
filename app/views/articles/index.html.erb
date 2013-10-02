@@ -7,3 +7,7 @@
     <li><%= link_to article.title, article %> - <%= link_to "X", article, method: :delete %></li>
   <% end %>
 </ul>
+
+<section class="paginate">
+  <%= paginate @articles %>
+</section>

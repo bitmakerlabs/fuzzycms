@@ -2,7 +2,10 @@ class ArticlesController < ApplicationController
     before_filter :require_login, :except => [:index]
 
   def index
-    @articles = Article.all
+    page = params[:page] || 1
+    @articles = Article.order(:created_at).page(page)
+    
+    # SELECT "articles".* FROM "articles" ORDER BY "articles".created_at ASC LIMIT 25 OFFSET 25
   end
 
   def show
