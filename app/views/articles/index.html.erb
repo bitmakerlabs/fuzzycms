@@ -2,11 +2,14 @@
 
 <h2>Articles</h2>
 
-<ul>
+<section id="articles">
   <% @articles.each do |article| %>
-    <li><%= link_to article.title, article %> - <%= link_to "X", article, method: :delete %></li>
+    <section class="index_article">
+      <%= link_to article.title, article %> - <%= link_to "X", article, method: :delete %>
+    </section>
   <% end %>
-</ul>
+</section>
+
 
 <section class="paginate">
   <%= paginate @articles %>

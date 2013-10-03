@@ -7,8 +7,10 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
+gem 'carrierwave'
 gem 'kaminari'
 gem 'pg'
+gem 'rmagick'
 gem 'sorcery'
 
 group :development, :test do

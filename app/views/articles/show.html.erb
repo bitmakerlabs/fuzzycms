@@ -4,6 +4,8 @@
   Written by: <%= @article.user.name %>
 </p>
 
+<%= image_tag @article.image_url if @article.image? %>
+
 <section id="article">
   <%= @article.body %>
 </section>

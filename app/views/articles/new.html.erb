@@ -1,8 +1,10 @@
 <h2>New</h2>
 
-<%= form_for @article do |f| %>
+<%= form_for @article, html: { multipart: true } do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
+
+  <%= f.file_field :image %>
 
   <%= f.label :body %>
   <%= f.text_area :body %>
