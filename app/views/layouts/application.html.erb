@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Fuzzycms</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -31,9 +31,20 @@
       <% end %>
     </section>
 
+    <input type="text" name="search" id="search" />
+
     <%= yield %>
   </section>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#search").autocomplete({
+      minLength: 2,
+      source: '<%= search_path(:json) %>'
+    })
+  });
+</script>
 
 </body>
 </html>

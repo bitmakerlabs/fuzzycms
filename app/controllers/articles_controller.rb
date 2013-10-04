@@ -6,6 +6,11 @@ class ArticlesController < ApplicationController
     @articles = Article.order(:created_at).page(page)
   end
 
+  def search
+    articles = Article.where('title ILIKE ?', "%#{params[:term]}%")
+    render :json => articles.map{ |article| { value: article.title } }
+  end
+
   def show
     @article = Article.find(params[:id])
     @comment = Comment.new
