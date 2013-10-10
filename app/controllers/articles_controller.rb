@@ -1,14 +1,9 @@
 class ArticlesController < ApplicationController
-    before_filter :require_login, :except => [:index]
+  before_filter :require_login, :except => [:index]
 
   def index
     page = params[:page] || 1
     @articles = Article.order(:created_at).page(page)
-  end
-
-  def search
-    articles = Article.where('title ILIKE ?', "%#{params[:term]}%")
-    render :json => articles.map{ |article| { value: article.title } }
   end
 
   def show

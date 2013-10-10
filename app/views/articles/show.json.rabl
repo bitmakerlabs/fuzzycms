@@ -3,7 +3,7 @@ object @article
 attributes :id, :title, :body, :created_at
 node(:url) { |article| article_url(article) }
 
-child :user do
+child :author do
   attributes :name, :email
 end
 

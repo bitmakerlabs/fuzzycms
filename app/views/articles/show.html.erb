@@ -1,7 +1,7 @@
 <h2><%= @article.title %></h2>
 
 <p>
-  Written by: <%= @article.user.name %>
+  Written by: <%= @article.author.name %>
 </p>
 
 <%= image_tag @article.image_url if @article.image? %>
