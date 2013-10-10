@@ -31,20 +31,8 @@
       <% end %>
     </section>
 
-    <input type="text" name="search" id="search" />
-
     <%= yield %>
   </section>
 </div>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-    $("#search").autocomplete({
-      minLength: 2,
-      source: '<%= search_path(:json) %>'
-    })
-  });
-</script>
-
 </body>
 </html>

@@ -7,7 +7,7 @@
 <%= image_tag @article.image_url if @article.image? %>
 
 <section id="article">
-  <%= @article.body %>
+  <%= simple_format h(@article.body) %>
 </section>
 
 <p><%= link_to "Edit", edit_article_path(@article) %></p>

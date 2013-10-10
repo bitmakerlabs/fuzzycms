@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'carrierwave'
 gem 'kaminari'
 gem 'pg'
+gem 'rabl'
 gem 'rmagick'
 gem 'sorcery'
 
