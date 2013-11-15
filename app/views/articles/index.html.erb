@@ -1,16 +1,20 @@
-<%=	link_to "New Article", new_article_path %>
+<!-- Main Blog Content -->
+<div class="large-9 columns" role="content">
 
-<h2>Articles</h2>
+  <%= link_to "New Article", new_article_path %>
 
-<section id="articles">
   <% @articles.each do |article| %>
-    <section class="index_article">
-      <%= link_to article.title, article %> - <%= link_to "X", article, method: :delete, confirm: "Are you sure?" %>
-    </section>
+    <article>
+      <h3><a href="#"><%= link_to article.title, article %></a></h3>
+      <h6>Written by <a href="#">John Smith</a> on August 12, 2012.</h6>
+      <%= simple_format article.body %>
+    </article>
+
+    <hr/>
   <% end %>
-</section>
 
+  <section class="paginate">
+    <%= paginate @articles %>
+  </section>
 
-<section class="paginate">
-  <%= paginate @articles %>
-</section>
+</div>
