@@ -11,5 +11,6 @@
  *= require reset
  *= require jquery.ui.all
  *= require_self
+ *= require foundation_and_overrides
  *= require_tree .
  */
