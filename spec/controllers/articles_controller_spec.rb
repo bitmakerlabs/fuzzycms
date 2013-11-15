@@ -3,7 +3,7 @@ require 'spec_helper'
 describe ArticlesController do
   
   describe 'GET index' do
-    it "should call all on Article" do
+    it "should return success" do
       Article.stub(:all)
       get :index
       expect(response.status).to eq(200)
@@ -50,7 +50,7 @@ describe ArticlesController do
     end
   end
 
-  describe "#create" do
+  describe "#create" do    
     let(:article_params) { {"title" => "title", "body" => "body"} }
     let!(:model) { FactoryGirl.build(:article) }
 

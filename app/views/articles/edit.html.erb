@@ -1,6 +1,17 @@
 <h2>Edit</h2>
 
-<%= form_for @article, html: { multipart: true } do |f| %>
+<%= form_for @article, html: {multipart: true} do |f| %>
+  <% if @article.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @article.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= f.label :title %>
   <%= f.text_field :title %>
 

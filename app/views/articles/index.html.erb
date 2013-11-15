@@ -5,7 +5,7 @@
 <section id="articles">
   <% @articles.each do |article| %>
     <section class="index_article">
-      <%= link_to article.title, article %> - <%= link_to "X", article, method: :delete %>
+      <%= link_to article.title, article %> - <%= link_to "X", article, method: :delete, confirm: "Are you sure?" %>
     </section>
   <% end %>
 </section>

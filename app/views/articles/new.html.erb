@@ -1,13 +1,32 @@
 <h2>New</h2>
 
-<%= form_for @article, html: { multipart: true } do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<%= form_for @article, html: {multipart: true} do |f| %>
+  <% if @article.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @article.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <%= f.file_field :image %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
 
-  <%= f.label :body %>
-  <%= f.text_area :body %>
+  <div class="field">
+    <%= f.file_field :image %>
+  </div>
 
-  <%= f.submit %> <%= link_to "Cancel", articles_path %>
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+
+  <div class="action">
+    <%= f.submit %> <%= link_to "Cancel", articles_path %>
+  </div>
 <% end %>
