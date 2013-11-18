@@ -1,12 +1,13 @@
 <!-- Main Blog Content -->
 <div class="large-9 columns" role="content">
 
-  <%= link_to "New Article", new_article_path %>
+  <%= link_to "New Article", new_article_path if current_user %>
 
   <% @articles.each do |article| %>
     <article>
       <h3><a href="#"><%= link_to article.title, article %></a></h3>
-      <h6>Written by <a href="#">John Smith</a> on August 12, 2012.</h6>
+      <h6>Category: <%= article.category.description %></h6>
+      <h6>Written by <%= article.author.name %> on <%= article.created_at.to_s(:long) %></h6>
       <%= simple_format article.body %>
     </article>
 
