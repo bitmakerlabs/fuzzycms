@@ -1,34 +1,33 @@
-<h2><%= @article.title %></h2>
+<div class="large-9 columns" role="content">
+  <article>
+    <h3><%= @article.title %></h3>
+    <h6>Written by <%= @article.author.name %> on <%= @article.created_at.to_s(:long) %></h6>
 
-<p>
-  Written by: <%= @article.author.name %>
-</p>
+    <%= simple_format h(@article.body) %>  
+  </article>
 
-<%= image_tag @article.image_url if @article.image? %>
+  <p><%= link_to "Edit", edit_article_path(@article) if @article.author == current_user %></p>
 
-<section id="article">
-  <%= simple_format h(@article.body) %>
-</section>
+  <section id="comments">
+  <h3>Comments</h3>
 
-<p><%= link_to "Edit", edit_article_path(@article) %></p>
+    <% @article.comments.each do |comment| %>
+      <section class="comment">
+        <%= comment.body %>
+      </section>
+    <% end %>
 
-<section id="comments">
-  <h2>Comments</h2>
+    <% if current_user %>
+      <%= form_for [@article, @comment] do |f| %>
+        <div class="field">
+          <%= f.label :body %>
+          <%= f.text_area :body %>
+        </div>
+        <div class="field">
+          <%= f.submit %>
+        </div>
+      <% end %>
+    <% end %>
 
-  <% @article.comments.each do |comment| %>
-    <section class="comment">
-      <%= comment.body %>
-    </section>
-  <% end %>
-
-  <%= form_for [@article, @comment] do |f| %>
-    <div class="field">
-      <%= f.label :body %>
-      <%= f.text_area :body %>
-    </div>
-    <div class="field">
-      <%= f.submit %>
-    </div>
-  <% end %>
-
-</section>
+  </section>
+</div>

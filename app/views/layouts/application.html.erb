@@ -29,19 +29,22 @@
     <div class="row">
       <div class="large-12 columns">
         <div class="nav-bar right">
-         <ul class="button-group">
-           <li><a href="#" class="button">Link 1</a></li>
-           <li><a href="#" class="button">Link 2</a></li>
-           <li><a href="#" class="button">Link 3</a></li>
-           <li><a href="#" class="button">Link 4</a></li>
+          <ul class="button-group">
+            <% if current_user %>
+              <li><%= link_to "Log out", logout_path, class: "button" %></li>
+            <% else %>
+              <li><%= link_to "Sign up", signup_path, class: "button" %></li>
+              <li><%= link_to "log in", login_path, class: "button" %></li>
+            <% end %>
           </ul>
         </div>
-        <h1>FuzzyCMS</h1>
+        <h1><%= link_to "FuzzyCMS", root_path %></h1>
         <hr />
       </div>
     </div>
 
     <!-- End Nav -->
+
 
 
     <!-- Main Page Content and Sidebar -->
