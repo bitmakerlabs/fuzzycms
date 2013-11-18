@@ -1,25 +1,8 @@
-<h2>Edit</h2>
+<div class="large-9 columns" role="content">
+  <article>
 
-<%= form_for @article, html: {multipart: true} do |f| %>
-  <% if @article.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @article.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <h3>Edit</h3>
 
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.file_field :image %>
-
-  <%= f.label :body %>
-  <%= f.text_area :body %>
-
-  <br/>
-  <%= f.submit %> <%= link_to "Cancel", @article %>
-<% end %>
+    <%= render "form" %>
+  </article>
+</div>

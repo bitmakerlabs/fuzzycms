@@ -7,6 +7,7 @@ Fuzzycms::Application.routes.draw do
 
   resources :users
   resources :sessions
+  resources :categories, :only => ["index", "create"]
 
   root 'articles#index'
 

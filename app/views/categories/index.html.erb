@@ -1,0 +1,17 @@
+<div class="large-9 columns" role="content">
+	<article>
+		<h3>New Category</h3>
+		<ul>
+			<% @categories.each do |c| %>
+				<li><%= c.description %></li>
+			<% end %>
+		</ul>
+
+		<%= form_for @category do |f| %>
+			<%= f.label :description %>
+			<%= f.text_field :description %>
+
+			<%= f.submit %>
+		<% end %>
+	</article>
+</div>
