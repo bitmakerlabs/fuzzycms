@@ -1,8 +1,5 @@
 <!-- Main Blog Content -->
-<div class="large-9 columns" role="content">
-
-  <%= link_to "New Article", new_article_path if current_user %>
-
+<div class="large-9 columns">
   <% @articles.each do |article| %>
     <article>
       <h3><a href="#"><%= link_to article.title, article %></a></h3>

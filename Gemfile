@@ -7,7 +7,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 
 gem 'carrierwave'
-gem 'zurb-foundation'
+gem 'foundation-rails'
 gem 'kaminari'
 gem 'pg'
 gem 'rabl'
