@@ -15,25 +15,25 @@
 //= require foundation
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(function () {
+  $(document).foundation();
+});
 
-$(document).ready(function() {
-  $("input:submit").on("submit", function(event) {
-    event.preventDefault()
+$(document).ready(function () {
+  $("#new_comment").on("submit", function (event) {
+    event.preventDefault();
 
-    var url = $(this).data("comment-url");
-    var data = $(this).find("#comment_body").val();
+    var url = $(this).attr("action");
+    var data = $(this).serialize();
 
-    $.ajax() {
+    $.ajax({
       type: "POST",
       url: url,
-      data: { body: data },
-      datatype: "json",
-      success: function(result) {
-        $("#comments").append("<li>" + result.body + "</li>");
-      }
-    }
-
-
-  });
+      data: data,
+      dataType: "json"
+    }).done(function (data) {
+          $("ul#comments").append("<li>" + data.body + "</li>");
+          $("textarea").val("");
+        })
+  })
 })

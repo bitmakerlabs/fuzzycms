@@ -4,7 +4,7 @@
     <h6>Category: <%= @article.category.description %></h6>
     <h6>Written by <%= @article.author.name %> on <%= @article.created_at.to_s(:long) %></h6>
 
-    <%= simple_format h(@article.body) %>  
+    <%= simple_format h(@article.body) %>
   </article>
 
   <p>
@@ -15,24 +15,26 @@
   </p>
 
   <section id="comments">
-  <h3>Comments</h3>
+    <h3>Comments</h3>
 
-  <ul id="comments" class="comments">
-    <% @article.comments.each do |comment| %>
-      <li>
-        <%= comment.body %>
-      </li>
-    <% end %>
-  </ul>
+    <ul id="comments" class="comments">
+      <% @article.comments.each do |comment| %>
+        <li>
+          <%= comment.body %>
+        </li>
+      <% end %>
+    </ul>
 
     <% if current_user %>
-      <div class="field">
-        <input type="text" name="comment_body" id="comment_body" />
-
-      </div>
-      <div class="field">
-        <input id="submit" type="submit" name="submit" value="Submit" data-comment-url="<%= new_article_comment_path([@article, @comment]) %>" />
-      </div>
+      <%= form_for [@article, @comment] do |f| %>
+        <div class="field">
+          <%= f.label :body %>
+          <%= f.text_area :body, style: "height: 10rem;" %>
+        </div>
+        <div class="field">
+          <%= f.submit %>
+        </div>
+      <% end %>
     <% end %>
 
   </section>
