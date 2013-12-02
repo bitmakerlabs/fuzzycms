@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
     @article = @user.articles.new article_parameters
 
     if @article.save
-      redirect_to @article
+      redirect_to @article, notice: "Article created successfully"
     else
       render :new
     end
@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
     @article.update_attributes article_parameters
 
     if @article.save
-      redirect_to @article
+      redirect_to @article, notice: "Article updated successfully"
     else
       render :edit
     end

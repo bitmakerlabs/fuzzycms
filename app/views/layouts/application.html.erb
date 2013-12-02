@@ -40,6 +40,14 @@
     </div>
 
     <div class="row">
+      <div class="large-12 columns">
+        <% flash.each do |name, msg| %>
+          <div data-alert class="<%= name %> alert-box radius"><%= msg %></div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
       <%= yield %>
     </div>
 
