@@ -12,6 +12,7 @@ gem 'kaminari'
 gem 'pg'
 gem 'rabl'
 gem 'rmagick'
+gem 'rolify'
 gem 'sorcery'
 
 group :development, :test do
