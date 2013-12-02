@@ -17,22 +17,22 @@
   <section id="comments">
   <h3>Comments</h3>
 
+  <ul id="comments" class="comments">
     <% @article.comments.each do |comment| %>
-      <section class="comment">
+      <li>
         <%= comment.body %>
-      </section>
+      </li>
     <% end %>
+  </ul>
 
     <% if current_user %>
-      <%= form_for [@article, @comment] do |f| %>
-        <div class="field">
-          <%= f.label :body %>
-          <%= f.text_area :body, style: "height: 10rem;" %>
-        </div>
-        <div class="field">
-          <%= f.submit %>
-        </div>
-      <% end %>
+      <div class="field">
+        <input type="text" name="comment_body" id="comment_body" />
+
+      </div>
+      <div class="field">
+        <input id="submit" type="submit" name="submit" value="Submit" data-comment-url="<%= new_article_comment_path([@article, @comment]) %>" />
+      </div>
     <% end %>
 
   </section>

@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
       if @comment.save
         CommentMailer.comment_email(current_user, @article).deliver
         format.html { redirect_to @article, :notice => "Comment successfully added" }
+        format.json { render @comment.to_json }
       else
         format.html { redirect_to @article, :error => "Something went wrong saving your comment" }
       end

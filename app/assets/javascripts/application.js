@@ -16,3 +16,24 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+$(document).ready(function() {
+  $("input:submit").on("submit", function(event) {
+    event.preventDefault()
+
+    var url = $(this).data("comment-url");
+    var data = $(this).find("#comment_body").val();
+
+    $.ajax() {
+      type: "POST",
+      url: url,
+      data: { body: data },
+      datatype: "json",
+      success: function(result) {
+        $("#comments").append("<li>" + result.body + "</li>");
+      }
+    }
+
+
+  });
+})
