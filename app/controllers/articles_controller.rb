@@ -43,6 +43,11 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
+    
+    if !current_user.admin?
+      redirect_to @article
+    end
+    
     @article.destroy
     redirect_to action: "index"
   end
