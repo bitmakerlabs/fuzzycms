@@ -3,7 +3,12 @@ class ArticlesController < ApplicationController
 
   def index
     page = params[:page] || 1
-    @articles = Article.order(:created_at).page(page)
+
+    if params[:tag]
+      @articles = Article.tagged_with(params[:tag]).order(:created_at).page(page)
+    else
+      @articles = Article.order(:created_at).page(page)
+    end
   end
 
   def show
@@ -54,6 +59,6 @@ class ArticlesController < ApplicationController
 
   private
   def article_parameters
-    params.require(:article).permit(:title, :body, :image, :category_id)
+    params.require(:article).permit(:title, :body, :image, :category_id, :tag_list)
   end
 end

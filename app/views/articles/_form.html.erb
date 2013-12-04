@@ -16,6 +16,9 @@
   <%= f.label :category_id, "Category" %>
   <%= f.collection_select :category_id, Category.all, :id, :description, :prompt => true %>
 
+  <%= f.label :tag_list, "Tags (separated by commas)" %>
+  <%= f.text_field :tag_list %>
+
   <%= f.file_field :image %>
 
   <%= f.label :body %>

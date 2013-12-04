@@ -5,6 +5,8 @@ Fuzzycms::Application.routes.draw do
 
   get 'search' => 'articles#search', :as => 'search'
 
+  get 'tags/:tag', to: 'articles#index', as: :tag
+
   resources :users
   resources :sessions
   resources :categories, :only => ["index", "create"]

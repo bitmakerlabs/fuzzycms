@@ -1,11 +1,12 @@
-<!-- Main Blog Content -->
+
 <div class="large-9 columns">
   <% @articles.each do |article| %>
     <article>
       <h3><a href="#"><%= link_to article.title, article %></a></h3>
       <h6>Category: <%= article.category.description %></h6>
       <h6>Written by <%= article.author.name %> on <%= article.created_at.to_s(:long) %></h6>
-      <%= simple_format article.body %>
+      <h6>Tags: <%= article.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ').html_safe %></h6>
+      <%= simple_format truncate(article.body, length: 400) %>
     </article>
 
     <hr/>
@@ -14,5 +15,22 @@
   <section class="paginate">
     <%= paginate @articles %>
   </section>
-
+</div>
+<div class="large-3 columns">
+  <div class="panel">
+    <h3>Tags</h3>
+    <div id="tag_cloud">
+      <% tag_cloud Article.tag_counts, %w[s m l] do |tag, css_class| %>
+        <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+      <% end %>
+    </div>
+  </div>
+  <div class="panel">
+    <h3>Categories</h3>
+    <ul>
+      <% Category.all.each do |c| %>
+        <li><%= c.description %></li>
+      <% end %>
+    </ul>
+  </div>
 </div>
