@@ -4,6 +4,8 @@
     <h6>Category: <%= @article.category.description %></h6>
     <h6>Written by <%= @article.author.name %> on <%= @article.created_at.to_s(:long) %></h6>
 
+    <%= image_tag @article.image_url %>
+
     <%= simple_format h(@article.body) %>  
   </article>
 
