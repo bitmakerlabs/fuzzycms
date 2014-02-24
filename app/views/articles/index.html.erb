@@ -1,10 +1,9 @@
-
 <div class="large-9 columns">
   <% @articles.each do |article| %>
     <article>
       <h3><a href="#"><%= link_to article.title, article %></a></h3>
       <h6>Category: <%= article.category.description %></h6>
-      <h6>Written by <%= article.author.name %> on <%= article.created_at.to_s(:long) %></h6>
+      <h6>Written by <%= article.author.name %> on <%= article.created_at.to_s(:short) %></h6>
       <h6>Tags: <%= article.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ').html_safe %></h6>
       <%= simple_format truncate(article.body, length: 400) %>
     </article>
