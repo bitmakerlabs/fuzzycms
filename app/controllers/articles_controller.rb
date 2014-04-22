@@ -22,6 +22,11 @@ class ArticlesController < ApplicationController
 
   def create
     @user = current_user
+
+    # @article = Article.new(article_parameters)
+    # @article.author = @user
+
+
     @article = @user.articles.new article_parameters
 
     if @article.save
