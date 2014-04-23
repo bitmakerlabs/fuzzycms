@@ -32,8 +32,8 @@
       <%= f.password_field :password_confirmation %>
     </div>
     <div class="field">
-      <%= f.check_box :admin %>
-      <%= f.label :admin %>
+      <%= f.label :role %>
+      <%= f.select :role, options_for_select(User::ROLES.map {|r| [r,r]}) %>
     </div>
     <div class="actions"><%= f.submit %></div>
   <% end %>

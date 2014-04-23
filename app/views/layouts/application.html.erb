@@ -1,61 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title><%= content_for?(:title) ? yield(:title) : "FuzzyCMS" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "FuzzyCMS" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= csrf_meta_tags %>
-  </head>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= csrf_meta_tags %>
+</head>
 
-  <body>
+<body>
 
-    <div class="fixed">
-      <div class="top-bar" data-topbar>
-        <ul class="title-area">
-          <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-          <li class="name">
-            <h1><%= link_to "FuzzyCMS", root_url %></h1>
-          </li>
-        </ul>
+<div class="fixed">
+  <div class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+      <li class="name">
+        <h1><%= link_to "FuzzyCMS", root_url %></h1>
+      </li>
+    </ul>
 
-        <section class="top-bar-section">
-          <!-- Right Nav Section -->
-          <ul class="right">
-            <li><%= link_to "New Article", new_article_path if current_user %></li>
-            <% if current_user %>
-              <li class="divider"></li>
-              <li><%= link_to "Logout", logout_path %></li>
-            <% else %>
-              <li class="divider"></li>
-              <li><%= link_to "Sign up", signup_path %></li>
-              <li class="divider"></li>
-              <li><%= link_to "Log in", login_path %></li>
-            <% end %>
-          </ul>
-        </section>
-      </div>
-    </div>
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
 
-    <div class="row">
-      <div class="large-12 columns">&nbsp;</div>
-    </div>
-
-    <div class="row">
-      <div class="large-12 columns">
-        <% flash.each do |name, msg| %>
-          <div data-alert class="<%= name %> alert-box radius"><%= msg %></div>
+        <% if current_user %>
+          <% if can? :manage, Article %>
+            <li class="divider"></li>
+            <li><%= link_to "New Article", new_article_path %></li>
+          <% end %>
+          <li class="divider"></li>
+          <li><%= link_to "Logout", logout_path %></li>
+        <% else %>
+          <li class="divider"></li>
+          <li><%= link_to "Sign up", signup_path %></li>
+          <li class="divider"></li>
+          <li><%= link_to "Log in", login_path %></li>
         <% end %>
-      </div>
-    </div>
+      </ul>
+    </section>
+  </div>
+</div>
 
-    <div class="row">
-      <%= yield %>
-    </div>
+<div class="row">
+  <div class="large-12 columns">&nbsp;</div>
+</div>
 
-    <%= javascript_include_tag "application" %>
-  </body>
+<div class="row">
+  <div class="large-12 columns">
+    <% flash.each do |name, msg| %>
+      <div data-alert class="<%= name %> alert-box radius"><%= msg %></div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <%= yield %>
+</div>
+
+<footer>
+  <div class="row">
+    <div class="large-12 columns">
+      <p>Created at Bitmaker Labs</p>
+    </div>
+  </div>
+</footer>
+
+<%= javascript_include_tag "application" %>
+</body>
 </html>

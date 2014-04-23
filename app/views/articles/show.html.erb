@@ -10,17 +10,19 @@
   </article>
 
   <p>
-    <%= link_to "Edit", edit_article_path(@article) if @article.author == current_user %>
-    <% if current_user.admin? %>
+    <% if can? :delete, @article %>
+      <%= link_to 'Edit', edit_article_path(@article) %> |
       <%= link_to "Delete", article_path(@article), method: :delete, confirm: "Are you sure you want to delete this article?" %>
+    <% elsif @article.author == current_user %>
+      <%= link_to "Edit", edit_article_path(@article) %>
     <% end %>
   </p>
 
   <section id="comments">
-  <h3>Comments</h3>
+    <h3>Comments</h3>
 
     <% @article.comments.each do |comment| %>
-      <section class="comment">
+      <section class="panel">
         <%= comment.body %>
       </section>
     <% end %>
