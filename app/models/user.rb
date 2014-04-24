@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
   AUTHOR = 'author'
 
   ROLES = [ADMIN, AUTHOR]
+
+  def is?(requested_role)
+    role == requested_role
+  end
 end

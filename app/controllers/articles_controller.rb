@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_filter :require_login, :except => [:index, :show]
+  load_and_authorize_resource
 
   def index
     page = params[:page] || 1
@@ -12,7 +13,6 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
     @comment = Comment.new
   end
 
@@ -22,11 +22,6 @@ class ArticlesController < ApplicationController
 
   def create
     @user = current_user
-
-    # @article = Article.new(article_parameters)
-    # @article.author = @user
-
-
     @article = @user.articles.new article_parameters
 
     if @article.save
@@ -37,11 +32,9 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
     @article.update_attributes article_parameters
 
     if @article.save
@@ -53,11 +46,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
-    
-    if !current_user.admin?
-      redirect_to @article
-    end
-    
+
     @article.destroy
     redirect_to action: "index"
   end
