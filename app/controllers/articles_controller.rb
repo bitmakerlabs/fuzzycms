@@ -21,8 +21,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @article = @user.articles.new article_parameters
+    @article = current_user.articles.new article_parameters
 
     if @article.save
       redirect_to @article, notice: "Article created successfully"
@@ -35,9 +34,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article.update_attributes article_parameters
-
-    if @article.save
+    if @article.update_attributes article_parameters
       redirect_to @article, notice: "Article updated successfully"
     else
       render :edit
