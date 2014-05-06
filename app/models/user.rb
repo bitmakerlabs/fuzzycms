@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_uniqueness_of :email
 
+  # we be seeing this later this week, mon
   ADMIN = 'admin'
   AUTHOR = 'author'
 
