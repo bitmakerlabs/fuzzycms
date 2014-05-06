@@ -5,3 +5,4 @@ class Comment < ActiveRecord::Base
 
   validates :article, :presence => true
 end
+#  changes to code

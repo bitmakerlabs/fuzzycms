@@ -53,3 +53,6 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(:title, :body, :image, :category_id, :tag_list)
   end
 end
+
+
+#  changes to code
