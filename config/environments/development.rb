@@ -38,7 +38,7 @@ Fuzzycms::Application.configure do
   #   address:              'smtp.gmail.com',
   #   port:                 587,
   #   domain:               'gmail.com',
-  #   user_name:            'blcohort3@gmail.com',
+  #   user_name:            'replace',
   #   password:             'cohort3rocks',
   #   authentication:       'plain',
   #   enable_starttls_auto: true

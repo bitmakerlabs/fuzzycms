@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = current_user.articles.new article_parameters
+    @article = current_user.articles.new article_params
 
     if @article.save
       redirect_to @article, notice: "Article created successfully"
@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    if @article.update_attributes article_parameters
+    if @article.update_attributes article_params
       redirect_to @article, notice: "Article updated successfully"
     else
       render :edit
@@ -42,17 +42,12 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
-
     @article.destroy
     redirect_to action: "index"
   end
 
   private
-  def article_parameters
+  def article_params
     params.require(:article).permit(:title, :body, :image, :category_id, :tag_list)
   end
 end
-
-
-#  changes to code

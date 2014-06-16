@@ -17,4 +17,7 @@ Fuzzycms::Application.routes.draw do
     resources :comments
   end
 
+  namespace :admin do
+    resources :articles
+  end
 end
